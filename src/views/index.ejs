@@ -1,0 +1,42 @@
+<%- include ('partials/_header'); %>
+
+    <div class="container">
+        <a href="/add" class="btn btn-primary mb-2">Agregar</a>
+
+        <div class="row">
+            <!-- LIST -->
+            <div class="col">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Disponibilidad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i < tasks.length; i++) { %>
+                            <tr>
+                            <td><%= i + 1%></td>
+                            <td><strong><%= tasks[i].nombre %></strong></td>
+                            <td>$<%= tasks[i].precio %></td>
+                            <td><%= tasks[i].disponibilidad ? 'Activo' : 'Inactivo'%></td>
+                            <td>
+                                <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger">
+                                Borrar
+                                </a>
+                                <a href="/edit/<%= tasks[i]._id %>" class="btn btn-info">
+                                Editar
+                                </a>
+                            </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<%- include ('partials/_footer'); %>

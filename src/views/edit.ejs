@@ -1,0 +1,44 @@
+<%- include ('partials/_header'); %>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <!--FORM-->
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Agregar plato</h3>
+                    <form action="/edit/<%= task._id %>" method="POST">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="nombre" placeholder="Nombre" value="<%= task.nombre %>">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="number" name="precio" placeholder="Precio" value="<%= task.precio %>>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="disponibilidad" id="activo" value="" checked>
+                                    <label class="form-check-label" for="activo">
+                                    Activo
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="disponibilidad" id="inactivo" value="">
+                                    <label class="form-check-label" for="inactivo">
+                                    Inactivo
+                                    </label>
+                                </div>
+                            <div class="form-check">                                
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">
+                            Editar
+                        </button>
+                        <a href="/" class="btn btn-danger">Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ('partials/_footer'); %>
